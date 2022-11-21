@@ -1,5 +1,9 @@
 // Import Google fonts
 @import url('https://fonts.googleapis.com/css?family=Nunito:400,700|Work+Sans:400,700&display=swap');
+@font-face {
+  font-family: 'Rowton';
+  src: url('../../fonts/TRYRowton-Regular.ttf');
+}
 
 // Define fonts for body and headers
 $body-font: "Work Sans", "Helvetica", "sans-serif";
