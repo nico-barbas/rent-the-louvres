@@ -1,8 +1,16 @@
 class BookingsController < ApplicationController
 
   def index
-    @current_user = current_user
-    @user_bookings = @current_user.bookings
+    @today = Date.today
+    @user = current_user
+    # @user_bookings = @user.bookings
     @user_bookings = policy_scope(Booking)
+    @user_future_bookings = @user_bookings.select do |booking|
+      p booking.start_date >= @today
+    end
+    @user_past_bookings = @user_bookings.select do |booking|
+      booking.start_date < @today
+    end
+    # @user_bookings = policy_scope(Booking)
   end
 end
