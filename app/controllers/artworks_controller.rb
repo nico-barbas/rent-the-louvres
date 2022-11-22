@@ -7,5 +7,6 @@ class ArtworksController < ApplicationController
   def show
     @artwork = Artwork.find(params[:id])
     authorize @artwork
+    @booking = Booking.new
   end
 end

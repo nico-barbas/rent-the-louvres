@@ -1,4 +1,11 @@
 class BookingsController < ApplicationController
+  def new
+    raise
+  end
+
+  def create
+    raise
+  end
 
   def index
     @current_user = current_user

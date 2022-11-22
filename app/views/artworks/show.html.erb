@@ -3,18 +3,38 @@
   <h3><%= @artwork.creator %></h3>
 </div>
 
-<div class="container m-0 card-artwork">
+<div class="container card-artwork mb-4">
   <img src=<%= @artwork.images.first.url %>>
 </div>
 
-<div class="container">
-  <div class="row">
-    <h3>Description</h3>
-    <p><%= @artwork.description %></p>
-  </div>
+<div class="container mt-4">
+  <div class="row p-4">
+    <div class="col-6">
+      <h3>Description</h3>
+      <p><%= @artwork.description %></p>
+      <p><strong>Dimensions:</strong> <%= @artwork.dimensions %><p>
+      <p><strong>Creation:</strong> <%= @artwork.creation_date.nil? ? "Unknown" : @artwork.creation_date %><p>
+    </div>
+    <div class="col-6">
+      <div class="card">
+        <div class="p-5">
+          <div class="card-body">
+            <h5 class="card-title pb-5 text-end">
+              <%= @artwork.price_per_day.to_i %> $/day
+            </h5>
+            <%= simple_form_for [@artwork, @booking] do |f| %>
+              <%= f.input :start_date %>
+              <%= f.input :end_date %>
+            <% end %>
+            <p class="text-end">Shipping cost: <strong>1$</strong></p>
+            <h5 class="text-end">Total price: <strong>1$</strong></h5>
 
-  <div class="row">
-    <p><strong>Dimensions:</strong> <%= @artwork.dimensions %><p>
-    <p><strong>Creation:</strong> <%= @artwork.creation_date.nil? ? "Unknown" : @artwork.creation_date %><p>
+            <div class="btn btn-primary mt-3" style="width:100%;">
+              Book Now!
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
-</div>
+  
