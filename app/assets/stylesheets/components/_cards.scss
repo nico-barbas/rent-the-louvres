@@ -1,0 +1,24 @@
+.card-price {
+    background-color: white;
+    position: relative;
+    left: 10px;
+    top: -30px;
+    border-radius: 10px;
+    padding: 10px 25px;
+    box-shadow: 0px 3px 3px rgba($color: black, $alpha: 0.1);
+}
+
+.card-artwork {
+    height: 500px;
+    background-color: rgba($color: #242020, $alpha: 1);
+    position: relative;
+}
+
+.card-artwork img {
+    width: 80%;
+    height: 80%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
