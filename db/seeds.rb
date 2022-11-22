@@ -14,6 +14,7 @@ require "open-uri"
 # liste des départements:
 # https://collectionapi.metmuseum.org/public/collection/v1/departments
 
+Booking.destroy_all
 Image.destroy_all
 Artwork.destroy_all
 User.destroy_all
@@ -61,4 +62,9 @@ artworks_ids.each do |artwork_id|
       end
     end
   end
+end
+
+5.times do
+  new_booking = Booking.new(artwork: Artwork.all.sample, user: louvre_admin, start_date: Date.new(2023,1,3), end_date: Date.new(2023,1, 5), duration: 2, total_price: rand(2000..100_000))
+  new_booking.save!
 end

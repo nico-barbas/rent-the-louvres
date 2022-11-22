@@ -1,0 +1,20 @@
+<div class="container">
+  <h2><%= @artwork.title %></h2>
+  <h3><%= @artwork.creator %></h3>
+</div>
+
+<div class="container m-0 card-artwork">
+  <img src=<%= @artwork.images.first.url %>>
+</div>
+
+<div class="container">
+  <div class="row">
+    <h3>Description</h3>
+    <p><%= @artwork.description %></p>
+  </div>
+
+  <div class="row">
+    <p><strong>Dimensions:</strong> <%= @artwork.dimensions %><p>
+    <p><strong>Creation:</strong> <%= @artwork.creation_date.nil? ? "Unknown" : @artwork.creation_date %><p>
+  </div>
+</div>

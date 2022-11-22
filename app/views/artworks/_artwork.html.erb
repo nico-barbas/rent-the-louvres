@@ -1,0 +1,13 @@
+<div class="card m-2 p-0" style="width: 26rem;">
+  <a href=<%= "/artworks/#{artwork.id}" %>>
+    <div class="card-artwork">
+        <% image_url = artwork.images.first.url %>
+        <img src=<%= image_url %> class="card-img-top" alt="...">
+    </div>
+  </a>
+  <div class="card-body">
+    <span class="card-price"><%= artwork.price_per_day.to_i %> $/day</span>
+    <h5 class="card-title"><%= artwork.title %></h5>
+    <p class="card-text"><%= artwork.creator %></p>
+  </div>
+</div>
