@@ -18,9 +18,8 @@ Image.destroy_all
 Artwork.destroy_all
 User.destroy_all
 
-louvre_admin = User.new(first_name: "Louvre", last_name: "admin", email: "louvre@admin.com", password: "louvre")
+louvre_admin = User.new(first_name: "Louvre", last_name: "admin", email: "louvre@admin.com", password: "louvre", admin: true)
 louvre_admin.save
-p louvre_admin
 
 all_artworks_url = "https://collectionapi.metmuseum.org/public/collection/v1/objects?departmentIds=11|9"
 artworks_serialized = URI.open(all_artworks_url).read
