@@ -1,0 +1,7 @@
+<% @user_bookings.each do |booking| %>
+<%= booking.artwork.title %>
+<%= booking.artwork.creator %>
+<%= "Start date: #{booking.start_date}" %>
+<%= "End date: #{booking.end_date}" %>
+<%= booking.total_price %>
+<% end %>

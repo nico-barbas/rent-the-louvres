@@ -4,6 +4,8 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
+  has_many :bookings
+  has_many :artworks
   validates :first_name, presence: true
   validates :first_name, length: { minimum: 2 }
   validates :last_name, presence: true
