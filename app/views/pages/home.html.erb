@@ -1,37 +1,35 @@
 <div class = "banner-container">
   <h1 class = "banner-h1">Rent the art you could never afford</h1>
-
-  <div class = "subtitle-background">
-   <h2 class= "banner-h2">Would you like La Joconde in your living room for a day or more? </h2>
-  </div>
+   <h2 class= "btn btn-primary btn-banner">Would you like La Joconde in your living room for a day or more? </h2>
 </div>
 
-<div class = "cards-container mb-5">
-  <div class="card-container">
-     <%= image_tag "https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg", alt: "#", width: 100 %>
-    <div class="card-infos">
-      <div>
-        <p>Find the masterpiece you want to rent in a large collection of arts<p>
+<div class="container">
+  <div class="row mb-5 mt-5">
+    <div class="card-container col-12 col-lg-4">
+      <%= image_tag("statues-homepage.png", alt: "statues") %>
+      <div class="card-infos pt-2 pb-3">
+        <div>
+          <p>Find the masterpiece you want to rent in a large collection of arts</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="card-container col-12 col-lg-4">
+      <%= image_tag("joconde-homepage.png", alt: "art") %>
+      <div class="card-infos pt-3 pb-2">
+        <div>
+          <p>In a few clicks, rent it for a day or more ...</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="card-container col-12 col-lg-4">
+      <%= image_tag("room-homepage.png", alt: "room") %>
+      <div class="card-infos pt-3 pb-2">
+        <div>
+          <p>Exhibit it in your house, in the room of your choice</p>
+        </div>
       </div>
     </div>
   </div>
-
-  <div class="card-container">
-     <%= image_tag "https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg", alt: "#", width: 100 %>
-    <div class="card-infos">
-      <div>
-        <p>In a few clicks, rent it for a day or more ...<p>
-      </div>
-    </div>
-  </div>
-
-  <div class="card-container">
-     <%= image_tag "https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg", alt: "#", width: 100 %>
-    <div class="card-infos">
-      <div>
-        <p>Exhibit it in your house, in the room of your choice<p>
-      </div>
-    </div>
-  </div>
-
 </div>
