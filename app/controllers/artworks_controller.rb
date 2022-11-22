@@ -1,5 +1,11 @@
 class ArtworksController < ApplicationController
   def index
-    @artworks = Artwork.all[0...50]
+    @artworks = policy_scope(Artwork)
+    @artworks = @artworks[0...50]
+  end
+
+  def show
+    @artwork = Artwork.find(params[:id])
+    authorize @artwork
   end
 end
