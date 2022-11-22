@@ -25,7 +25,7 @@ p louvre_admin
 all_artworks_url = "https://collectionapi.metmuseum.org/public/collection/v1/objects?departmentIds=11|9"
 artworks_serialized = URI.open(all_artworks_url).read
 all_artworks = JSON.parse(artworks_serialized)
-artworks_ids = all_artworks["objectIDs"].sample(10)
+artworks_ids = all_artworks["objectIDs"].sample(100)
 
 artworks_ids.each do |artwork_id|
   url = "https://collectionapi.metmuseum.org/public/collection/v1/objects/#{artwork_id}"
@@ -51,19 +51,15 @@ artworks_ids.each do |artwork_id|
     )
     new_artwork.user = louvre_admin
     new_artwork.save!
-    p new_artwork
     first_image = Image.new(url: primary_image)
     first_image.artwork = new_artwork
     first_image.save
-    p first_image
     if artwork["additionalImages"] != []
       artwork["additionalImages"][0...4].each do |image_url|
         new_image = Image.new(url: image_url) unless image_url.nil?
         new_image.artwork = new_artwork
         new_image.save
-        p new_image
       end
     end
   end
 end
-
