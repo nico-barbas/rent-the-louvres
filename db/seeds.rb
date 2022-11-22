@@ -67,13 +67,3 @@ artworks_ids.each do |artwork_id|
   end
 end
 
-# artwork["isHighlight"] == true &&
-
-# t.string "title"
-# t.string "creator"
-# t.text "description"
-# t.float "width"
-# t.float "height"
-# t.date "creation_date"
-# t.string "type"
-# t.float "price_per_day"
