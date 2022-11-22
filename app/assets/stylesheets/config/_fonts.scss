@@ -1,20 +1,33 @@
 // Import Google fonts
 @import url('https://fonts.googleapis.com/css?family=Nunito:400,700|Work+Sans:400,700&display=swap');
-@font-face {
-  font-family: 'Rowton';
-  src: url('../../fonts/TRYRowton-Regular.ttf');
-}
+
 
 // Define fonts for body and headers
-$body-font: "Work Sans", "Helvetica", "sans-serif";
-$headers-font: "Nunito", "Helvetica", "sans-serif";
+$body-font: "Rowton-Regular", "sans-serif";
+$headers-font: "Rowton-Medium", "sans-serif";
 
 // To use a font file (.woff) uncomment following lines
-// @font-face {
-//   font-family: "Font Name";
-//   src: font-url('FontFile.eot');
-//   src: font-url('FontFile.eot?#iefix') format('embedded-opentype'),
-//        font-url('FontFile.woff') format('woff'),
-//        font-url('FontFile.ttf') format('truetype')
-// }
-// $my-font: "Font Name";
+@font-face {
+  font-family: "Rowton-Regular";
+    src: font-url('TRYRowton-Regular.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: "Rowton-BlackStencil";
+    src: font-url('TRYRowton-BlackStencil.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: "Rowton-Hairline";
+src: font-url('TRYRowton-Hairline.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: "Rowton-Medium";
+src: font-url('TRYRowton-Medium.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: "Rowton-MediumStencil";
+src: font-url('TRYRowton-MediumStencil.ttf') format('truetype');
+}
