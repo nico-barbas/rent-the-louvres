@@ -14,8 +14,13 @@ require "open-uri"
 # liste des départements:
 # https://collectionapi.metmuseum.org/public/collection/v1/departments
 
+Image.destroy_all
+Artwork.destroy_all
+User.destroy_all
+
 louvre_admin = User.new(first_name: "Louvre", last_name: "admin", email: "louvre@admin.com", password: "louvre")
 louvre_admin.save
+p louvre_admin
 
 all_artworks_url = "https://collectionapi.metmuseum.org/public/collection/v1/objects?departmentIds=11|9"
 artworks_serialized = URI.open(all_artworks_url).read
@@ -28,7 +33,6 @@ artworks_ids.each do |artwork_id|
   artwork = JSON.parse(artwork_serialized)
   if artwork["primaryImage"] != "" && artwork["dimensions"] != ""
     title = artwork["title"]
-    p title
     creator_name = artwork["artistDisplayName"]
     creation_date = artwork["objectDate"]
     dimensions = artwork["dimensions"]
@@ -48,16 +52,18 @@ artworks_ids.each do |artwork_id|
     new_artwork.user = louvre_admin
     new_artwork.save!
     p new_artwork
-    # first_image = Image.new(url: primary_image)
-    # first_image.artwork = new_artwork
-    # first_image.save
-    # if artwork["additionalImages"] != []
-    #   artwork[0...4].each do |image_url|
-    #     new_image = Image.new(url: image_url) unless image_url.nil?
-    #     new_image.artwork = new_artwork
-    #     new_image.save
-    #   end
-    # end
+    first_image = Image.new(url: primary_image)
+    first_image.artwork = new_artwork
+    first_image.save
+    p first_image
+    if artwork["additionalImages"] != []
+      artwork["additionalImages"][0...4].each do |image_url|
+        new_image = Image.new(url: image_url) unless image_url.nil?
+        new_image.artwork = new_artwork
+        new_image.save
+        p new_image
+      end
+    end
   end
 end
 
