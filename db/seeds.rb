@@ -17,9 +17,9 @@ require "open-uri"
 Booking.destroy_all
 Image.destroy_all
 Artwork.destroy_all
-User.destroy_all
+User.destroy_allg
 
-louvre_admin = User.new(first_name: "Louvre", last_name: "admin", email: "louvre@admin.com", password: "louvre", admin: true)
+louvre_admin = User.new(first_name: "Martine", last_name: "admin", email: "louvre@admin.com", password: "louvre", admin: true)
 louvre_admin.save
 
 all_artworks_url = "https://collectionapi.metmuseum.org/public/collection/v1/objects?departmentIds=11|9"
