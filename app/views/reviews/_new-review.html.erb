@@ -1,0 +1,7 @@
+<h3>New review</h3>
+<p>What did you think about this artpiece?</p>
+<%= simple_form_for [@artwork, @review] do |f| %>
+  <%= f.input :comment %>
+  <%= f.input :rating, collection: 0..5 %>
+  <%= f.button :submit %>
+<% end %>
