@@ -17,7 +17,7 @@ require "open-uri"
 Booking.destroy_all
 Image.destroy_all
 Artwork.destroy_all
-User.destroy_allg
+User.destroy_all
 
 louvre_admin = User.new(first_name: "Martine", last_name: "admin", email: "louvre@admin.com", password: "louvre", admin: true)
 louvre_admin.save
