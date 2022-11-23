@@ -1,19 +1,19 @@
-<div class="container">
+<div class="container mt-4">
   <h2><%= @artwork.title %></h2>
-  <h3><%= @artwork.creator %></h3>
+  <h3 class="text-end"><%= @artwork.creator %></h3>
 </div>
 
-<div class="container card-artwork mb-4">
+<div class="container card-artwork mt-4 mb-4">
   <img src=<%= @artwork.images.first.url %>>
 </div>
 
 <div class="container mt-4">
   <div class="row p-4">
     <div class="col-6">
-      <h3>Description</h3>
+      <h4>Description</h4>
       <p><%= @artwork.description %></p>
-      <p><strong>Dimensions:</strong> <%= @artwork.dimensions %><p>
-      <p><strong>Creation:</strong> <%= @artwork.creation_date.nil? ? "Unknown" : @artwork.creation_date %><p>
+      <p><strong>Dimensions: </strong> <%= @artwork.dimensions %><p>
+      <p><strong>Creation date/period: </strong> <%= @artwork.creation_date.nil? ? "Unknown" : @artwork.creation_date %><p>
     </div>
     <div class="col-6">
       <div class="card">
@@ -25,16 +25,13 @@
             <%= simple_form_for [@artwork, @booking] do |f| %>
               <%= f.input :start_date %>
               <%= f.input :end_date %>
+              <p class="text-end">Shipping cost: <strong>1$</strong></p>
+              <h5 class="text-end">Total price: <strong>1$</strong></h5>
+              <%= f.submit class: "btn btn-primary", style: "width: 100%;" %>
             <% end %>
-            <p class="text-end">Shipping cost: <strong>1$</strong></p>
-            <h5 class="text-end">Total price: <strong>1$</strong></h5>
-
-            <div class="btn btn-primary mt-3" style="width:100%;">
-              Book Now!
-            </div>
           </div>
         </div>
       </div>
     </div>
   </div>
-  
+</div>
