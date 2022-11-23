@@ -4,10 +4,11 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto">
           <li class="nav-item active">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Account</a>
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Menu</a>
              <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-              <a class="dropdown-item" href="#">Dashboard</a>
-              <a class="dropdown-item" data-turbo-method="delete" href="#">Log out</a>
+              <%= link_to "All Artworks", artworks_path, class: "dropdown-item" %>
+              <%= link_to "Your Dashboard", bookings_path, class: "dropdown-item" %>
+              <a class="dropdown-item" data-turbo-method="delete" href="/">Log out</a>
             </div>
           </li>
       </ul>
