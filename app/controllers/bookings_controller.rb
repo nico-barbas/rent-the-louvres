@@ -1,10 +1,17 @@
 class BookingsController < ApplicationController
-  def new
-    raise
-  end
-
   def create
-    raise
+    @booking_params = booking_params
+    @booking = Booking.new(@booking_params)
+    @booking.user = current_user
+    @booking.artwork = Artwork.find(params[:artwork_id])
+    @booking.duration = @booking.start_date - @booking.end_date
+    @booking.total_price = @booking.artwork.price_per_day * (@booking.duration / 86_400_000)
+    authorize @booking
+    if @booking.save
+      redirect_to :bookings
+    else
+      render @booking.artwork, status: :unprocessable_entity
+    end
   end
 
   def index
@@ -20,11 +27,17 @@ class BookingsController < ApplicationController
     end
     # @user_bookings = policy_scope(Booking)
   end
-
+  
   def destroy
     @booking = Booking.find(params[:id])
     authorize @booking
     @booking.destroy
     redirect_to bookings_path
   end
+  
+  private
+
+  def booking_params
+    return params.require("booking").permit(:start_date, :end_date)
+   end
 end
