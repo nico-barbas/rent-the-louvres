@@ -5,4 +5,8 @@ class BookingPolicy < ApplicationPolicy
       scope.where(user: user)
     end
   end
+
+  def create?
+    true
+  end
 end
