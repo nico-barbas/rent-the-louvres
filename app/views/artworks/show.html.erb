@@ -18,15 +18,23 @@
     <div class="col-6">
       <div class="card">
         <div class="p-5">
-          <div class="card-body">
-            <h5 class="card-title pb-5 text-end">
+          <div class="card-body" data-controller="checkout">
+            <h5 class="card-title pb-5 text-end" data-checkout-target="pricePerDay">
               <%= @artwork.price_per_day.to_i %> $/day
             </h5>
             <%= simple_form_for [@artwork, @booking] do |f| %>
-              <%= f.input :start_date %>
-              <%= f.input :end_date %>
-              <p class="text-end">Shipping cost: <strong>1$</strong></p>
-              <h5 class="text-end">Total price: <strong>1$</strong></h5>
+              <%= f.input :start_date, input_html: { data: {
+                action: "change->checkout#updatePrice",
+                checkout_target: "startDate",
+              }
+              } %>
+              <%= f.input :end_date, input_html: { data: {
+                action: "change->checkout#updatePrice",
+                checkout_target: "endDate",
+              }
+              } %>
+              <p class="text-end">Shipping cost included</p>
+              <h5 class="text-end" data-checkout-target="totalPrice">Total price: <strong><%= @artwork.price_per_day.to_i %>$</strong></h5>
               <%= f.submit class: "btn btn-primary", style: "width: 100%;" %>
             <% end %>
           </div>
