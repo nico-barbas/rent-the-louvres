@@ -1,11 +1,15 @@
 
 <div class="container justify-content-center">
   <div class = "row">
-    <h2 style="text-align: center;">The Louvre Collection</h2>
+    <h2 class="my-5 fs-1" style="text-align: center;">The Louvre Collection</h2>
+    <%# <div class="dflex justify-content-center"><hr class="mb-5" style="text-align: center; width:15%;"></div> %>
+
   </div>
   <div class = "row">
     <% @artworks.each do |artwork| %>
         <%= render "artworks/artwork", artwork: artwork %>
     <% end %>
   </div>
+  <br>
+  <br>
 </div>
