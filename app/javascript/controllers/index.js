@@ -7,6 +7,9 @@ import { application } from "./application"
 import ApprovalController from "./approval_controller"
 application.register("approval", ApprovalController)
 
+import BackupController from "./backup_controller"
+application.register("backup", BackupController)
+
 import CheckoutController from "./checkout_controller"
 application.register("checkout", CheckoutController)
 
