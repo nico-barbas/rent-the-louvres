@@ -26,6 +26,9 @@ class BookingsController < ApplicationController
       booking.start_date < @today
     end
     # @user_bookings = policy_scope(Booking)
+    @review = Review.new
+    # authorize @review
+
   end
 
   def destroy
