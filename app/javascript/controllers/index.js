@@ -12,3 +12,9 @@ application.register("checkout", CheckoutController)
 
 import HelloController from "./hello_controller"
 application.register("hello", HelloController)
+
+import StarDisplayController from "./star_display_controller"
+application.register("star-display", StarDisplayController)
+
+import StarRatingController from "./star_rating_controller"
+application.register("star-rating", StarRatingController)

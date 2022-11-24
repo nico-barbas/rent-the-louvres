@@ -52,9 +52,8 @@
             </div>
             <div class="modal-body">
               <%= simple_form_for [booking.artwork, @review] do |f| %>
-              <%= f.input :content %>
-              <%= f.input :rating, collection: 0..5 %>
-            </div>
+              <%= f.input :content, label: "Comment"%>
+              <%= f.input :rating, collection: (1..5).to_a, label: "Rate your experience", input_html: {data: {controller: "star-rating"}} %>            </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-primary btn-modal" data-bs-dismiss="modal">Close</button>
               <%= f.button :submit, class:"btn btn-primary btn-modal" %>
