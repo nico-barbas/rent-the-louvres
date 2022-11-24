@@ -48,8 +48,13 @@
             <h6>No review for this artwork</h6>
         <% else %>
           <% @reviews.each do |review| %>
-          <h6>" <%= review[:content] %> " </h6>
-          <p><%= review[:rating] %> /5 -  <%= current_user[:first_name] %> </p>
+            <h6>" <%= review[:content] %> " </h6>
+            <div>
+              <div class="text-primary" data-controller="star-display"
+                  data-star-display-target="rating"
+                  data-review-value=<%= review[:rating] %>></div>
+              <p><%= current_user[:first_name] %> </p>
+            </div>
           <% end %>
         <% end %>
       </div>
