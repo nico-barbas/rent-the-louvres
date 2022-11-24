@@ -12,6 +12,7 @@
           </div>
         </a>
         <div class="card-body">
+          <span  data-controller="approval" data-action="scroll@window->approval#updateStatus" class="card-status">Pending</span>
           <span class="card-price">Total price: <%= booking.total_price.to_i %>$</span>
           <h5 class="card-title"><%= booking.artwork.title %></h5>
           <p class="card-text fst-italic"> <%= booking.artwork.creator %></p>
@@ -63,5 +64,11 @@
         </div>
       </div>
     <% end %>
+  </div>
+
+  <%# alert %>
+  <div class="alert alert-warning alert-dismissible fade show opacity-0" role="alert" data-controller="approval" data-action="scroll@window->approval#notification">
+  <strong>Great news!</strong> One of your booking has been approved
+  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
   </div>
 </div>
