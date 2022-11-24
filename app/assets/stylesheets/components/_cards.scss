@@ -23,3 +23,13 @@
     transform: translate(-50%, -50%);
     object-fit: contain;
 }
+
+.artwork-carousel {
+    background-color: #242020;
+    height: 500px;
+}
+
+.artwork-carousel-item {
+    object-fit: contain;
+    height: 100%;
+}
