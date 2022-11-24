@@ -6,7 +6,6 @@ class ReviewsController < ApplicationController
     @review.artwork = @artwork
     @review.user = current_user
     @review.save
-
     redirect_to artwork_path(@artwork)
   end
 

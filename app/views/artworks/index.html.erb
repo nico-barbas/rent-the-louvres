@@ -1,14 +1,18 @@
-
 <div class="container justify-content-center">
   <%= form_with url: artworks_path, method: :get, class: "d-flex mt-4" do %>
+    <%= select "category", "name", @categories, class: "form-control" %>
     <%= text_field_tag :query,
         params[:query],
         class: "form-control",
         placeholder: "Search for the perfect Artwork"
     %>
-
     <%= submit_tag "Search", class: "btn btn-primary" %>
   <% end %>
+  <div class="d-flex">
+    <% @categories.each do |category| %>
+
+    <% end %> 
+  </div>
 
   <div class = "row">
     <h2 class="my-5 fs-1" style="text-align: center;">The Louvre Collection</h2>
