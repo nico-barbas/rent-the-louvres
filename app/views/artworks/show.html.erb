@@ -4,35 +4,35 @@
 </div>
 
 <div class="container card-artwork mt-4 mb-4">
-<% if @artwork.images.length > 1 %>
-  <div id="artworkImages" class="carousel slide artwork-carousel" data-ride="carousel">
-    <div class="carousel-indicators">
-      <% @artwork.images.each_with_index do |image, i| %>
-        <button type="button" data-bs-target="#artworkImages" data-bs-slide-to=<%= i %> class=<%= i.zero? ? "active" : "" %> aria-current="true" aria-label="Slide 1"></button>
-      <% end %>
-    </div>
-    <div class="carousel-inner h-100">
-      <div class="carousel-item active h-100">
-        <img class="d-block w-100 artwork-carousel-item" src=<%= @artwork.images.first.url %> alt="First slide">
+  <% if @artwork.images.length > 1 %>
+    <div id="artworkImages" class="carousel slide artwork-carousel" data-ride="carousel">
+      <div class="carousel-indicators">
+        <% @artwork.images.each_with_index do |image, i| %>
+          <button type="button" data-bs-target="#artworkImages" data-bs-slide-to=<%= i %> class=<%= i.zero? ? "active" : "" %> aria-current="true" aria-label="Slide 1"></button>
+        <% end %>
       </div>
-      <% @artwork.images[1..].each do |image| %>
-        <div class="carousel-item h-100">
-          <img class="d-block w-100 artwork-carousel-item" src=<%= image.url %> alt=<%= "#{@artwork.title} Slide" %>>
+      <div class="carousel-inner h-100">
+        <div class="carousel-item active h-100">
+          <img class="d-block w-100 artwork-carousel-item" src=<%= @artwork.images.first.url %> alt="First slide">
         </div>
-      <% end %>
+        <% @artwork.images[1..].each do |image| %>
+          <div class="carousel-item h-100">
+            <img class="d-block w-100 artwork-carousel-item" src=<%= image.url %> alt=<%= "#{@artwork.title} Slide" %>>
+          </div>
+        <% end %>
+      </div>
+      <button class="carousel-control-prev" type="button" data-bs-target="#artworkImages" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#artworkImages" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
     </div>
-    <button class="carousel-control-prev" type="button" data-bs-target="#artworkImages" data-bs-slide="prev">
-      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-      <span class="visually-hidden">Previous</span>
-    </button>
-    <button class="carousel-control-next" type="button" data-bs-target="#artworkImages" data-bs-slide="next">
-      <span class="carousel-control-next-icon" aria-hidden="true"></span>
-      <span class="visually-hidden">Next</span>
-    </button>
-  </div>
-<% else %>
-    <img src=<%= @artwork.images.first.url %>>
-<% end %>
+  <% else %>
+      <img  src=<%= @artwork.images.first.url %>>
+  <% end %>
 </div>
 
 <div class="container mt-4">
@@ -57,6 +57,7 @@
     <div class="col-6">
       <div class="card">
         <div class="p-5">
+        <h3>New booking</h3>
           <div class="card-body" data-controller="checkout">
             <h5 class="card-title pb-5 text-end" data-checkout-target="pricePerDay">
               <%= @artwork.price_per_day.to_i %> $/day
@@ -73,8 +74,8 @@
               }
               } %>
               <p class="text-end">Shipping cost included</p>
-              <h5 class="text-end" data-checkout-target="totalPrice">Total price: <strong><%= @artwork.price_per_day.to_i %>$</strong></h5>
-              <%= f.submit class: "btn btn-primary", style: "width: 100%;" %>
+              <h5 class="text-end pb-4" data-checkout-target="totalPrice">Total price: <strong><%= @artwork.price_per_day.to_i %>$</strong></h5>
+              <%= f.submit "Reserve", class: "btn btn-primary", style: "width: 100%;"%>
             <% end %>
           </div>
         </div>
