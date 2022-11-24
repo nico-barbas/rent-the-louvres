@@ -8,6 +8,17 @@
     box-shadow: 0px 3px 3px rgba($color: black, $alpha: 0.1);
 }
 
+.card-status {
+  background-color: $liberty;
+  color: white;
+  position: relative;
+  left: 260px;
+  top: -503px;
+  border-radius: 10px;
+  padding: 5px 25px;
+  box-shadow: 0px 3px 3px rgba($color: black, $alpha: 0.1);
+}
+
 .card-artwork {
     height: 500px;
     background-color: rgba($color: #242020, $alpha: 1);
