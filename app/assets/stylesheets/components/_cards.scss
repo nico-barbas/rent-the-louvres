@@ -1,7 +1,7 @@
 .card-price {
     background-color: white;
     position: relative;
-    left: 10px;
+    left: 60px;
     top: -30px;
     border-radius:5px;
     padding: 10px 25px;
@@ -43,4 +43,14 @@
 .artwork-carousel-item {
     object-fit: contain;
     height: 100%;
+}
+
+.card-price-past {
+  background-color: white;
+  position: relative;
+  left: 180px;
+  top: -30px;
+  border-radius:5px;
+  padding: 10px 25px;
+  box-shadow: 0px 3px 3px rgba($color: black, $alpha: 0.1);
 }
