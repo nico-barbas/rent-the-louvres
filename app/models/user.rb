@@ -6,6 +6,8 @@ class User < ApplicationRecord
 
   has_many :bookings
   has_many :artworks
+  has_many :reviews
+
   validates :first_name, presence: true
   validates :first_name, length: { minimum: 2 }
   validates :last_name, presence: true

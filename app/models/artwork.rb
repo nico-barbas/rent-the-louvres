@@ -1,6 +1,7 @@
 class Artwork < ApplicationRecord
   belongs_to :user
   has_many :images
+  has_many :reviews
 
   validates :title, presence: true
   validates :title, uniqueness: true
