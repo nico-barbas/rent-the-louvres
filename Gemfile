@@ -79,6 +79,3 @@ group :test do
   gem "selenium-webdriver"
   gem "webdrivers"
 end
-
-gem 'popper_js'
-gem 'bootstrap'
