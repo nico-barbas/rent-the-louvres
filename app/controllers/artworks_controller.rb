@@ -21,5 +21,6 @@ class ArtworksController < ApplicationController
     @artwork = Artwork.find(params[:id])
     authorize @artwork
     @booking = Booking.new
+    @reviews = @artwork.reviews
   end
 end
