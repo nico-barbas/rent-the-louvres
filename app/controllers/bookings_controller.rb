@@ -35,6 +35,20 @@ class BookingsController < ApplicationController
     redirect_to bookings_path
   end
 
+  def update
+    @booking_params = booking_params
+    @booking.user = current_user
+    @booking.artwork = Artwork.find(params[:artwork_id])
+    @booking.duration = @booking.end_date - @booking.start_date
+    @booking.total_price = @booking.artwork.price_per_day * (@booking.duration)
+    authorize @booking
+    if @booking.save
+      redirect_to :bookings
+    else
+      render @booking.artwork, status: :unprocessable_entity
+    end
+  end
+
   private
 
   def booking_params
