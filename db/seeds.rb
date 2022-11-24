@@ -69,7 +69,6 @@ end
   new_booking.save!
 end
 
-
 new_booking = Booking.new(artwork: Artwork.all.sample, user: louvre_admin, start_date: Date.new(2021,1,3), end_date: Date.new(2021,1, 5), duration: 2, total_price: rand(2000..100_000))
 new_booking.save!
 new_booking = Booking.new(artwork: Artwork.all.sample, user: louvre_admin, start_date: Date.new(2020,5,20), end_date: Date.new(2020,5, 25), duration: 2, total_price: rand(2000..100_000))

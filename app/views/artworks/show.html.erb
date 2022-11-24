@@ -37,6 +37,17 @@
       <p><%= @artwork.description %></p>
       <p><strong>Dimensions: </strong> <%= @artwork.dimensions %><p>
       <p><strong>Creation date/period: </strong> <%= @artwork.creation_date.nil? ? "Unknown" : @artwork.creation_date %><p>
+      <div class="reviews-card m-5 p-4">
+        <h5 style="margin-bottom: 1.3em; color: #BBC1F3">Reviews from others clients</h4>
+        <% if @reviews.empty? %>
+            <h6>No review for this artwork</h6>
+        <% else %>
+          <% @reviews.each do |review| %>
+          <h6>" <%= review[:content] %> " </h6>
+          <p><%= review[:rating] %> /5 -  <%= current_user[:first_name] %> </p>
+          <% end %>
+        <% end %>
+      </div>
     </div>
     <div class="col-6">
       <div class="card">
