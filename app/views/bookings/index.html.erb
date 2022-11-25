@@ -67,8 +67,10 @@
   </div>
 
   <%# alert %>
+  <% if !@user_future_bookings.empty? %>
   <div class="alert alert-warning alert-dismissible fade show opacity-0" role="alert" data-controller="approval" data-action="scroll@window->approval#notification">
   <strong>Great news!</strong> One of your booking has been approved
   <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
   </div>
+  <% end %>
 </div>
