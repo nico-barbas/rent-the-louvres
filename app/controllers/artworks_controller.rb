@@ -1,4 +1,4 @@
-MEDIUMS = ["Painting", "Print", "Drawing", "Sculpture"]
+MEDIUMS = ["All", "Painting", "Print", "Drawing", "Sculpture"]
 
 class ArtworksController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
@@ -9,7 +9,9 @@ class ArtworksController < ApplicationController
       sql_query = "title ILIKE :query OR creator ILIKE :query"
       @artworks = Artwork.where(sql_query, query: "%#{params[:query]}%")
       category = params.require("category").permit(:name)
-      @artworks = @artworks.where(medium: category[:name])
+      if category[:name] != "All"
+        @artworks = @artworks.where(medium: category[:name])
+      end
     else
       @artworks = @artworks[0...50]
     end
