@@ -38,7 +38,7 @@ end
 all_artworks_url = "https://collectionapi.metmuseum.org/public/collection/v1/objects?departmentIds=11|9"
 artworks_serialized = URI.open(all_artworks_url).read
 all_artworks = JSON.parse(artworks_serialized)
-artworks_ids = all_artworks["objectIDs"].sample(150)
+artworks_ids = all_artworks["objectIDs"].sample(400)
 
 artworks_ids.each do |artwork_id|
   url = "https://collectionapi.metmuseum.org/public/collection/v1/objects/#{artwork_id}"
