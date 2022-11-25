@@ -40,6 +40,7 @@
     <div class="col-6">
       <h4>Description</h4>
       <p><%= @artwork.description %></p>
+      <p>Category: <%= @artwork.medium %></p>
       <p><strong>Dimensions: </strong> <%= @artwork.dimensions %><p>
       <p><strong>Creation date/period: </strong> <%= @artwork.creation_date.nil? ? "Unknown" : @artwork.creation_date %><p>
       <div class="reviews-card m-5 p-4">
