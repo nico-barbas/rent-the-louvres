@@ -15,23 +15,39 @@ require "open-uri"
 # https://collectionapi.metmuseum.org/public/collection/v1/departments
 
 Booking.destroy_all
+Review.destroy_all
 Image.destroy_all
 Artwork.destroy_all
 User.destroy_all
 
+# max_non_painting = 2
+# counter = 0
+
 louvre_admin = User.new(first_name: "Martine", last_name: "admin", email: "louvre@admin.com", password: "louvre", admin: true)
 louvre_admin.save
+
+all_users = []
+30.times do
+  new_user = User.new(first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, admin: false)
+  new_user.email = "#{new_user.first_name}.#{new_user.last_name}@#{Faker::Internet.domain_name(domain: "example")}"
+  new_user.password = "password"
+  new_user.save!
+  all_users << new_user
+end
 
 all_artworks_url = "https://collectionapi.metmuseum.org/public/collection/v1/objects?departmentIds=11|9"
 artworks_serialized = URI.open(all_artworks_url).read
 all_artworks = JSON.parse(artworks_serialized)
-artworks_ids = all_artworks["objectIDs"].sample(100)
+artworks_ids = all_artworks["objectIDs"].sample(400)
 
 artworks_ids.each do |artwork_id|
   url = "https://collectionapi.metmuseum.org/public/collection/v1/objects/#{artwork_id}"
   artwork_serialized = URI.open(url).read
   artwork = JSON.parse(artwork_serialized)
-  if artwork["primaryImage"] != "" && artwork["dimensions"] != ""
+  if artwork["primaryImage"] != "" && artwork["dimensions"] != "" && ["Painting", "Print", "Drawing", "Sculpture"].include?(artwork["objectName"]) && artwork["title"].length <= 40
+    # if counter >= max_non_painting && artwork["objectName"] != "Painting"
+    #   next
+    # end
     title = artwork["title"]
     creator_name = artwork["artistDisplayName"]
     creation_date = artwork["objectDate"]
@@ -61,12 +77,15 @@ artworks_ids.each do |artwork_id|
         new_image.save
       end
     end
+    rand(1..6).times do
+      user = all_users.sample
+      new_review = Review.new(content: Faker::TvShows::HowIMetYourMother.quote, rating: rand(1..5))
+      new_review.artwork = new_artwork
+      new_review.user = user
+      new_review.save
+    end
+    # counter += 1 unless new_artwork.medium == "Painting"
   end
-end
-
-5.times do
-  new_booking = Booking.new(artwork: Artwork.all.sample, user: louvre_admin, start_date: Date.new(2023,1,3), end_date: Date.new(2023,1, 5), duration: 2, total_price: rand(2000..100_000))
-  new_booking.save!
 end
 
 new_booking = Booking.new(artwork: Artwork.all.sample, user: louvre_admin, start_date: Date.new(2021,1,3), end_date: Date.new(2021,1, 5), duration: 2, total_price: rand(2000..100_000))

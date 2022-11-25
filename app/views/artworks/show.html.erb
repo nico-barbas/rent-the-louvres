@@ -55,7 +55,8 @@
               <div class="text-primary" data-controller="star-display"
                   data-star-display-target="rating"
                   data-review-value=<%= review[:rating] %>></div>
-              <p><%= current_user[:first_name] %> </p>
+                  <% user = User.find(review[:user_id]) %>
+              <p><%= "#{user.first_name} #{user.last_name}" %> </p>
             </div>
           <% end %>
         <% end %>
