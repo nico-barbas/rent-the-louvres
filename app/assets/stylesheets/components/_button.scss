@@ -40,3 +40,28 @@
   left: 50%;
   bottom: 20px;
 }
+
+.btn-search {
+  font-family: 'Rowton-Hairlite';
+  font-size: 1.5em;
+  text-align: center;
+  font-weight: bold;
+  color: #505095;
+  &:hover {
+    color: #000000;
+  }
+}
+
+#category_name  {
+  font-family: 'Rowton-Hairlite';
+  font-size: 1.3em;
+  text-align: center;
+  font-weight: bold;
+  color: #505095;
+  border-color: #505095;
+  border-radius: 2px;
+  &:hover {
+    color: #000000;
+    border-color: #505095;
+  }
+}

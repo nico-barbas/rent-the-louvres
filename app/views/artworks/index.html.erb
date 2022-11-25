@@ -1,18 +1,21 @@
 <%= render "shared/navbar" %>
 <div class="container justify-content-center">
-  <%= form_with url: artworks_path, method: :get, class: "d-flex mt-4" do %>
-    <%= select "category", "name", @categories, class: "form-control" %>
-    <%= text_field_tag :query,
-        params[:query],
-        class: "form-control",
-        placeholder: "Search for the perfect Artwork"
-    %>
-    <%= submit_tag "Search", class: "btn btn-primary" %>
-  <% end %>
-  <div class="d-flex">
-    <% @categories.each do |category| %>
-
-    <% end %>
+  <div class= "search-bar">
+    <div class="col-6">
+      <%= form_with url: artworks_path, method: :get, class: "d-flex mt-4" do %>
+        <%= select "category", "name", @categories, class: "form-control btn-category" %>
+        <%= text_field_tag :query,
+            params[:query],
+            class: "form-control",
+            placeholder: "Enter a key word ..."
+        %>
+        <%= submit_tag "Search", class: "btn btn-search" %>
+      <% end %>
+      <div class="d-flex">
+        <% @categories.each do |category| %>
+        <% end %>
+      </div>
+    </div>
   </div>
 
   <div class = "row">
@@ -32,7 +35,7 @@
   class="d-flex justify-content-center"
   data-controller="backup"
   data-action="scroll@window->backup#controlBtn"
-  style="position:fixed; left: 50%; bottom: 20px;">
+  style="position:fixed; left: 44%; bottom: 20px;">
     <div class="btn btn-primary" data-action="click->backup#scrollToTop" data-backup-target="scrollBtn">
       Back to the top
     </div>
