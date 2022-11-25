@@ -3,11 +3,10 @@ class Artwork < ApplicationRecord
   has_many :images
   has_many :reviews
 
-  validates :title, presence: true
-  validates :title, uniqueness: true
+  validates :title, presence: true, uniqueness: { scope: :creator }
 
   validates :description, presence: true
-  validates :description, length: { minimum: 20, maximum: 512 }
+  validates :description, length: { minimum: 20 }
 
   validates :price_per_day, presence: true
 end
