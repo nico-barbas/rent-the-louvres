@@ -18,8 +18,8 @@ export default class extends Controller {
         this.ratingTarget.innerHTML = html
         break;
       case 1:
-        const html =  "<div><i class='fa-solid fa-star'></i><i class='fa-regular fa-star'></i><i class='fa-regular fa-star'></i><i class='fa-regular fa-star'></i><i class='fa-regular fa-star'></i></div>"
-        this.ratingTarget.innerHTML = html
+        const html1 =  "<div><i class='fa-solid fa-star'></i><i class='fa-regular fa-star'></i><i class='fa-regular fa-star'></i><i class='fa-regular fa-star'></i><i class='fa-regular fa-star'></i></div>"
+        this.ratingTarget.innerHTML = html1
         break;
       case 2:
         const html2 =  "<div><i class='fa-solid fa-star'></i><i class='fa-solid fa-star'></i><i class='fa-regular fa-star'></i><i class='fa-regular fa-star'></i><i class='fa-regular fa-star'></i></div>"
