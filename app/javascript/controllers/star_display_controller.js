@@ -13,6 +13,10 @@ export default class extends Controller {
   #insertStars(value) {
     this.ratingTarget.innerHTML = value;
     switch(value) {
+      case 0:
+        const html =  "<div><i class='fa-regular fa-star'></i><i class='fa-regular fa-star'></i><i class='fa-regular fa-star'></i><i class='fa-regular fa-star'></i><i class='fa-regular fa-star'></i></div>"
+        this.ratingTarget.innerHTML = html
+        break;
       case 1:
         const html =  "<div><i class='fa-solid fa-star'></i><i class='fa-regular fa-star'></i><i class='fa-regular fa-star'></i><i class='fa-regular fa-star'></i><i class='fa-regular fa-star'></i></div>"
         this.ratingTarget.innerHTML = html
